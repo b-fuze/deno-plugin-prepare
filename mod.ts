@@ -59,7 +59,9 @@ export async function prepare(options: PerpareOptions): Promise<number> {
 
   const localPath = await download(options);
 
-  log.info(`load deno plugin "${name}" from local "${localPath}"`);
+  if (printLog === true) {
+    log.info(`load deno plugin "${name}" from local "${localPath}"`);
+  }
 
   return Deno.openPlugin(localPath);
 }
